@@ -54,19 +54,44 @@ $(function() {
 
 $(function() {
     $('.firstName').blur(function() {
-        if ($('.firstName').val().length <= 3) {
+        if ($('.firstName').val().length <= 2) {
             $(this).siblings('.lengthMin').slideDown();
             $(this).addClass('invalid');
         } else {
             $(this).siblings('.lengthMin').slideUp();
         }
-    });
-    $('.firstName').keyup(function() {
-        if (/^[a-zA-Z0-9- ]*$/.test($('.firstName').val()) == false) {
-            $(this).siblings('.specChars').slideDown();
+        if (/([0-9- ]|[~`!#@$%\^&*+=\-\[\]\\';,/{}|\\":<>\?])/gi.test($('.firstName').val())) {
             $(this).addClass('invalid');
+            $(this).siblings('.specChars').slideDown();
         } else {
             $(this).siblings('.specChars').slideUp();
+        }
+    });
+
+    $('.firstName').keyup(function() {
+        if (!/^([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd]|[a-zA-Z])*$/gi.test($('.firstName').val())) {
+            if (/([ ])/gi.test($('.firstName').val())) {
+                $(this).siblings('.specChars').children('.space').css('display', 'list-item');
+            } else {
+                $(this).siblings('.specChars').children('.space').css('display', 'none');
+            }
+            if (/([0-9])/gi.test($('.firstName').val())) {
+                $(this).siblings('.specChars').children('.numric').css('display', 'list-item');
+            } else {
+                $(this).siblings('.specChars').children('.numric').css('display', 'none');
+            }
+            if (/[~`!#@$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/gi.test($('.firstName').val())) {
+                $(this).siblings('.specChars').children('.spic').css('display', 'list-item');
+            } else {
+                $(this).siblings('.specChars').children('.spic').css('display', 'none');
+            }
+            $(this).addClass('invalid');
+            $(this).siblings('.specChars').slideDown();
+        } else {
+            $(this).siblings('.specChars').slideUp();
+            $(this).removeClass('invalid');
+            $(this).siblings('.specChars').children('.space').css('display', 'none');
+            $(this).siblings('.specChars').children('.numric').css('display', 'none');
         }
         if ($('.firstName').val().length >= 10) {
             $(this).siblings('.lengthMax').slideDown();
