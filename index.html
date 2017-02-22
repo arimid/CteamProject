@@ -1,113 +1,139 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Sign-Up / Sign-In</title>
-		<link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="css/materialize.min.css">
-		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel='stylesheet' href='css/normalize.css'>
-		<link rel='stylesheet' href='css/segmented-controls.css'>
-		<link rel='stylesheet' href='css/style.css'>
-		
-	</head>
-	<body class="grey lighten-1">
-	<div class='form container'>
-		<ul class='tab-group'>
-			<div class='row'>
-				<div class='col s12'>
-					<li class='tab active'><a href='#signup'>Sign Up</a></li>
-					<li class='tab'><a href='#login'>Log In</a></li>
-				</div>
-			</div>
-		</ul>
-		<div class='tab-content'>
-			<div id='signup'>
-				<h1>Sign Up For Free</h1>
-				<form>
-					<div class='row'>
-						<div class="input-field col s6">
-							<input id="last_name" type="text" required class="validate">
-							<label for="last_name">First Name<span class='req'>*</span></label>
-						</div>
-						<div class="input-field col s6">
-							<input id="last_name" type="text" required class="validate">
-							<label for="last_name">Last Name<span class='req'>*</span></label>
-						</div>
-					</div>
-					<div class='row'>
-						<div class="input-field col s12">
-							<input id="last_name" type="email" required class="validate">
-							<label for="last_name">Email<span class='req'>*</span></label>
-						</div>
-					</div>
-					<div class='row'>
-						<div class="input-field col s12">
-							<input id="last_name" type="email" required class="validate">
-							<label for="last_name">Confirm Email<span class='req'>*</span></label>
-						</div>
-					</div>
-					<div class='row'>
-						<div class="input-field col s12">
-							<input id="last_name" type="password" required class="validate">
-							<label for="last_name">Set A Password<span class='req'>*</span></label>
-						</div>
-					</div>
-					<div class='row'>
-						<div class="input-field col s12">
-							<input id="last_name" type="password" required class="validate">
-							<label for="last_name">Confirm Password<span class='req'>*</span></label>
-						</div>
-					</div>
-					<div class='row'>
-						<div class='input-field col s12'>
-							<label for="birthdate" class="">Birthday</label>
-							<input type="date" required id='birthdate' class="datepicker">
-						</div>
-					</div>
-					<div class='row'>
-						<div class='col s4 offset-s4'>
-							<input name="sex" type="radio" id="male" />
-							<label for="male">Male</label>
-							<input name="sex" type="radio" id="female" />
-							<label for="female">Female</label>
-						</div>
-					</div>
-					<div class='row'>
-						<div class='col s12'>
-							<input type="submit" class="col s12 btn-large flow-text" value="Sign Up">
-						</div>
-					</div>
-				</form>
-			</div>
-			<div id="login" style="display: none;">
-          		<h1>Welcome Back!</h1>
-				<form>
-					<div class="signin" >
-					<div class='row'>
-						<div class="input-field col s12">
-							<input id="last_name" type="text" class="validate">
-							<label for="last_name">Email<span class='req'>*</span></label>
-						</div>
-					</div>
-					<div class='row'>
-						<div class="input-field col s12">
-							<input id="last_name" type="text" class="validate">
-							<label for="last_name">Password<span class='req'>*</span></label>
-						</div>
-					</div>
-					<div class='row'>
-					<div class='col s12'>
-						<input type="submit" value="LOG IN" class="col s12 btn-large flow-text">
-					</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="js/materialize.min.js"></script>
-		<script type="text/javascript" src="js/plugin.js"></script>
-		
-	</body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sign-Up / Sign-In</title>
+    <link href="http:fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link href="http:fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/segmented-controls.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="grey lighten-1">
+    <div class="form container">
+        <ul class="tab-group">
+            <div class="row">
+                <div class="col s12">
+                    <li class="tab active"><a href="#signup">Sign Up</a></li>
+                    <li class="tab"><a href="#login">Log In</a></li>
+                </div>
+            </div>
+        </ul>
+        <div class="tab-content">
+            <div id="signup">
+                <h1>Sign Up For Free</h1>
+                <form action="signup.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input name="first_name" type="text" class="firstName validate">
+                            <label for="first_name" class="">First Name<span class="req">*</span></label>
+                            <div class="inValid lengthMin">
+                                First name Must be At Least 4 letters
+                            </div>
+                            <div class="inValid specChars">
+                                Special Charecters is not Allowed
+                            </div>
+                        </div>
+                        <div class="input-field col s6">
+                            <input name="last_name" type="text" class="lastName validate">
+                            <label for="last_name">Last Name<span class="req">*</span></label>
+                            <div class="alert">
+                                <span class="inValid">Last name isn't Valid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="email" type="email" class="validate">
+                            <label for="email">Email<span class="req">*</span></label>
+                            <div class="alert">
+                                <span class="inValid">Email isn't Valid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="email_confirmation" type="email" class="validate">
+                            <label for="email_confirmation">Confirm Email<span class="req">*</span></label>
+                            <div class="alert">
+                                <span class="inValid">Emails isn't match</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="password" type="password" class="validate">
+                            <label for="password">Set A Password<span class="req">*</span></label>
+                            <div class="alert">
+                                <span class="inValid">password isn't Valid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="password_confirmation" type="password" class="validate" />
+                            <label for="password_confirmation">Confirm Password<span class="req">*</span></label>
+                            <div class="alert">
+                                <span class="inValid">Passwords doesn't match</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="birthdate">Birthday</label>
+                            <input type="date" name="birthdate" class="datepicker" />
+                            <div class="alert">
+                                <span class="inValid">Please Select Valid date</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s4 offset-s4">
+                            <input name="sex" type="radio" id="male" value="male" />
+                            <label for="male">Male</label>
+                            <input name="sex" type="radio" id="female" value="female" />
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <input disabled type="submit" class="col s12 btn-large flow-text" value="Sign Up">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="login" style="display: none;">
+                <h1>Welcome Back!</h1>
+                <form>
+                    <div class="signin">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Email<span class="req">*</span></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Password<span class="req">*</span></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="submit" value="LOG IN" class="col s12 btn-large flow-text">
+                            </div>
+                        </div>
+                </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="https:code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/plugin.js"></script>
+
+</body>
+
 </html>

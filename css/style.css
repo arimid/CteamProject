@@ -1,14 +1,18 @@
-*,*:before,*:after{
+*,
+*:before,
+*:after {
     user-select: none;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     max-width: 600px;
     background: rgba(19, 35, 47, 0.9);
     padding: 40px;
     margin: 40px auto;
 }
-h1{
+
+h1 {
     text-align: center;
     font-weight: 300;
     color: #fff;
@@ -17,7 +21,8 @@ h1{
     font-family: 'Titillium Web', sans-serif;
     font-size: 2em;
 }
-.tab-group li a{
+
+.tab-group li a {
     display: block;
     text-decoration: none;
     padding: 15px;
@@ -31,31 +36,51 @@ h1{
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
-input{
+
+input {
     color: #fff;
     font-family: 'Titillium Web', sans-serif;
 }
-input[type='text']{
+
+input[type='text'] {
     margin: 0;
     margin-bottom: 20px;
 }
-.input-field{
+
+.input-field {
     margin-top: 0px;
 }
-.tab-group .active a{
+
+.tab-group .active a {
     background: #1ab188;
     color: #ffffff;
 }
-.row{
-    margin-bottom:10px;
+
+.row {
+    margin-bottom: 10px;
 }
-.row:nth-of-type(7){
+
+.row:nth-of-type(7) {
     margin-bottom: 20px;
 }
-.req{
-        margin: 2px;
+
+.req {
+    margin: 2px;
     color: #1ab188;
 }
-h1{
+
+h1 {
     margin: 20px 0;
+}
+
+.inValid {
+    padding: 10px 30px;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: none;
+    text-align: left;
 }
