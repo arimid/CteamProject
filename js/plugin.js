@@ -54,17 +54,25 @@ $(function() {
 
 $(function() {
     $('.firstName').blur(function() {
-        if ($('.firstName').val().length <= 4) {
+        if ($('.firstName').val().length <= 3) {
             $(this).siblings('.lengthMin').slideDown();
             $(this).addClass('invalid');
         } else {
             $(this).siblings('.lengthMin').slideUp();
         }
+    });
+    $('.firstName').keyup(function() {
         if (/^[a-zA-Z0-9- ]*$/.test($('.firstName').val()) == false) {
             $(this).siblings('.specChars').slideDown();
             $(this).addClass('invalid');
         } else {
             $(this).siblings('.specChars').slideUp();
+        }
+        if ($('.firstName').val().length >= 10) {
+            $(this).siblings('.lengthMax').slideDown();
+            $(this).addClass('invalid');
+        } else {
+            $(this).siblings('.lengthMax').slideUp();
         }
     });
     $('input').blur(function() {
