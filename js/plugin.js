@@ -1,7 +1,28 @@
 /*global console,$*/
 
-
+var pageName;
 $(function() {
+    function getLink(link) {
+        var n = link.split("/");
+        return n[n.length - 1];
+    }
+    var target = $(getLink(window.location.href));
+    for (var i = 1; i <= 2; i++) {
+        if ($('.tab:nth-of-type(' + i + ')').children('a').attr('href') === getLink(window.location.href)) {
+            $('.tab:nth-of-type(' + i + ')').addClass('active');
+            $('.tab:nth-of-type(' + i + ')').siblings().removeClass('active');
+            $('.tab-content > div').not(target).hide();
+            $(target).fadeIn(600);
+        }
+
+    }
+    if (getLink(window.location.href) === "#signup") {
+        pageName = ' - Sign Up';
+    } else if (getLink(window.location.href) === "#login") {
+        pageName = ' - Log In';
+    } else {
+        pageName = '';
+    }
     $('.form').find('input, textarea').on('keyup blur focus', function(e) {
         var $this = $(this),
             label = $this.prev('label');
@@ -109,4 +130,5 @@ $(function() {
             }
         }
     });
+    document.title = 'C Team' + pageName;
 });
