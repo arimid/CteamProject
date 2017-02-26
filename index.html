@@ -3,27 +3,32 @@
 
 <head>
     <meta charset="utf-8">
-    <title>C Team - Sign Up</title>
+    <title>C Team</title>
     <link href="http:fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/materialize.min.css">
-    <link rel="stylesheet" href="css/materialize-icon.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/segmented-controls.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="grey lighten-1">
+    <div class="loader">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
     <div class="form container">
         <ul class="tab-group">
             <div class="row">
                 <div class="col s12">
-                    <li class="tab active"><a href="#signup">Sign Up</a></li>
-                    <li class="tab"><a href="#login">Log In</a></li>
+                    <li class="tab"><a page="Sign Up" href="#signup">Sign Up</a></li>
+                    <li class="tab"><a page="Log In" href="#login">Log In</a></li>
                 </div>
             </div>
         </ul>
         <div class="tab-content">
-            <div id="signup">
+            <div id="signup" style="display: none;">
                 <h1>Sign Up For Free</h1>
                 <form action="signup.php" method="post">
                     <div class="row">
@@ -117,28 +122,29 @@
                     <div class="signin">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Email<span class="req">*</span></label>
+                                <input id="login_email" type="text" class="validate">
+                                <label for="login_email">Email<span class="req">*</span></label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Password<span class="req">*</span></label>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="login_pass" type="text" class="validate">
+                            <label for="login_pass">Password<span class="req">*</span></label>
                         </div>
-                        <div class="row">
-                            <div class="col s12">
-                                <input type="submit" value="LOG IN" class="col s12 btn-large flow-text">
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <input type="submit" value="LOG IN" class="col s12 btn-large flow-text">
                         </div>
+                    </div>
                 </form>
-                </div>
             </div>
         </div>
-        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/plugin.js"></script>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/plugin.js"></script>
 </body>
 
 </html>
